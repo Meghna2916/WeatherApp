@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Weathercard from "./weathercard";
 import "./style.css";
+import {FaSearchLocation} from 'react-icons/fa';
+import {FaMapPin} from 'react-icons/fa';
+import {FaLocationArrow} from 'react-icons/fa';
 
 const Tempp = () => {
   const [searchValue, setSearchValue] = useState("chandigarh");
@@ -40,13 +43,14 @@ const Tempp = () => {
   useEffect(() => {
     getWeatherInfo();
   }, []);
-
   return (
     <>
+    <div className="container">
       <div className="wrap">
         <div className="search">
+          <div className="locationPin"><FaLocationArrow/></div>
           <input
-            type="search"
+            type="text"
             placeholder="search..."
             autoFocus
             id="search"
@@ -54,20 +58,22 @@ const Tempp = () => {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
-
           <button
             className="searchButton"
             type="button"
             onClick={getWeatherInfo}>
-            Search
+            <FaSearchLocation/>
           </button>
+          
         </div>
       </div>
-
+      </div>
       {/* our temp card  */}
       <Weathercard tempInfo={tempInfo} />
+      
     </>
   );
+
 };
 
 export default Tempp;

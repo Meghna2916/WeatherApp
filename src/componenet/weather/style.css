@@ -1,13 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-:root {
+/* :root {
   --rad: 0.7rem;
   --dur: 0.3s;
   --color-dark: #2f2f2f;
@@ -17,15 +21,25 @@
   --height: 5rem;
   --btn-width: 6rem;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
-}
+} */
 
-body {
+/* body {
   background-color: #f5f5f5;
   background: var(--color-dark);
   height: 100vh;
   min-height: 100vh;
   display: grid;
   place-items: center;
+} */
+
+body {
+  background: linear-gradient(to bottom, #000000, #0a6470, #000);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 100vh;
+
 }
 
 .widget {
@@ -38,6 +52,7 @@ body {
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3),
     0 17px 17px 0 rgba(0, 0, 0, 0.15);
 }
+
 .widget .weatherIcon {
   flex: 1 100%;
   height: 50%;
@@ -57,8 +72,10 @@ body {
   background: #080705;
   display: flex;
   align-items: center;
+  padding: 15px;
   color: white;
 }
+
 .widget .weatherInfo .temperature {
   flex: 0 0 40%;
   width: 100%;
@@ -67,6 +84,7 @@ body {
   justify-content: space-around;
   margin-right: 20px;
 }
+
 .widget .weatherInfo .description {
   flex: 0 60%;
   display: flex;
@@ -75,14 +93,17 @@ body {
   height: 100%;
   justify-content: center;
 }
+
 .widget .weatherInfo .description .weatherCondition {
   text-transform: uppercase;
   font-size: 35px;
   font-weight: 100;
 }
+
 .widget .weatherInfo .description .place {
   font-size: 15px;
 }
+
 .widget .date {
   flex: 0 0 30%;
   height: 40%;
@@ -121,8 +142,8 @@ body {
   text-align: center;
   align-items: center;
   color: #70c1b3;
-   /* background-color: blanchedalmond;  */
-} 
+  /* background-color: blanchedalmond;  */
+}
 
 .widget .extra-temp .extra-info-leftside {
   text-align: left;
@@ -130,44 +151,97 @@ body {
   text-transform: capitalize;
   color: #080705;
   font-size: 15px;
-} 
+}
 
 /* input search button style  */
-
-.search {
-  width: 100%;
-  position: relative;
+.container{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.wrap{
+  position: relative;
+    width: 450px;
+    height: 40px;
+    background: #fff;
+    padding: 10px 32px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: 0.6s ease-out;
+   
+}
+.search {
+  /* width: 100%; */
+  position: relative;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchTerm {
-  width: 50%;
-  /* border: 3px solid #00b4cc; */
-  border: none;
-  padding: 16px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
+  color: #06283D;
+  width: 70%;
+  height: 100%;
   font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  /* padding-right: 20px; */
+  /* justify-content: space-around; */
+  /* margin: 10px; */
+  position: relative;
+  border: none;
+  /* border-bottom: 2px solid #ccc; */
+  transition: border-width 0.3s ease, border-color 0.3s ease;
+  outline: none; 
+  
 }
+
+
+.searchTerm input::placeholder {
+  font-size: 18px;
+  font-weight: 500;
+  color: #048b9c;
+  text-transform: capitalize;
+}
+
+.searchTerm::selection{
+  background: #048b9c;
+  color: #fff;
+}
+
 
 .searchTerm:focus {
   color: #00b4cc;
+  outline:none;
+  border-width: 2px; 
+  border-color: #048b9c; 
 }
 
-.searchButton {
-  width: 80px;
-  height: 32px;
-  border: none;
-  background: #048b9c;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
+.searchButton{
   cursor: pointer;
-  font-size: 20px;
-  outline: none;
-  font-size: 16px;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background: #048b9c;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.6s ease;
+    
+}
+.searchButton span{
+  font-size: 10px;
+}
+
+.wrap .search .locationPin{
+  font-size: 23px;
+  padding: 3px;
+ 
+  margin-right: 5px;
 }
 
 .searchButton:hover {
@@ -190,3 +264,164 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 } */
+
+/*Responsiveness*/
+
+@media(max-width:659px)
+{
+  .widget{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 500px;
+    margin-left: 70px;
+  }
+
+  .widget .weatherIcon{
+    font-size: 75px;
+  }
+
+  .widget .weatherInfo .temperature{
+    font-size: 25px;
+    margin-right: 5px;
+  }
+  .widget .weatherInfo .description .weatherCondition{
+    font-size: 20px;
+  }
+
+  .widget .date{
+    font-size: 20px;
+  }
+
+  .widget .extra-temp{
+    font-size: 70px;
+  }
+  
+  .widget .extra-temp p{
+    font-size: 15px;
+  }
+
+  .wrap{
+    height: 85px;
+    width: 500px;
+    margin-left: 70px;
+  }
+
+  .searchTerm{
+    width: 70%;
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .searchButton{
+    font-size: 18px;
+  }
+}
+
+@media (max-width:625px)
+{
+  .widget{
+    height: 350px;
+    width: 500px;
+    margin-left: 70px;
+    margin-right: 50px;
+  }
+
+  .widget .weatherIcon{
+    font-size: 75px;
+  }
+
+  .widget .weatherInfo .temperature{
+    font-size: 25px;
+    margin-right: 5px;
+  }
+  .widget .weatherInfo .description .weatherCondition{
+    font-size: 20px;
+  }
+
+  .widget .date{
+    font-size: 20px;
+  }
+
+  .widget .extra-temp{
+    font-size: 70px;
+  }
+  
+  .widget .extra-temp p{
+    font-size: 15px;
+  }
+
+  .wrap{
+    height: 85px;
+    width: 500px;
+    margin-left: 70px;
+  }
+
+  .searchTerm{
+    width: 70%;
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .searchButton{
+    font-size: 18px;
+  }
+}
+
+@media (max-width:500px)
+{
+  .widget{
+    height: 350px;
+    width: 300px;
+    margin-left: 85px;
+    margin-right: 60px;
+  }
+
+  .widget .weatherIcon{
+    font-size: 55px;
+  }
+
+  .widget .weatherInfo .temperature{
+    font-size: 15px;
+    margin-right: 5px;
+  }
+  .widget .weatherInfo .description .weatherCondition{
+    font-size: 15px;
+  }
+
+  .widget .date{
+    font-size: 10px;
+  }
+
+  .widget .extra-temp{
+    font-size: 50px;
+  }
+  
+  .widget .extra-temp p{
+    font-size: 15px;
+  }
+
+  .widget .extra-temp .extra-info-leftside {
+    font-size: 10px;
+    font-weight: 400;
+    padding: 2px;
+  }
+  .wrap{
+    height: 85px;
+    width: 300px;
+    margin-left: 90px;
+  }
+
+  .searchTerm{
+    width: 70%;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .searchButton{
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+  }
+}
